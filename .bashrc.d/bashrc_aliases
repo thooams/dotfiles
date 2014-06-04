@@ -1,0 +1,27 @@
+alias ls='ls --color=auto'
+alias ll='ls -lF --color=auto'
+alias la='ls -alF --color=auto'
+alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[0] "'
+alias grep='grep --color=auto'
+
+alias ri='ri -f ansi'
+
+
+# alias for cucumber
+alias cu='RAILS_ENV=cucumber bundle exec cucumber --require features --format=pretty -x'
+alias cucumber='RAILS_ENV=cucumber bundle exec cucumber --require features'
+
+# eime grep
+alias seime="grep -r -n --exclude-dir=tmp --exclude=tags --exclude=Session.vim --exclude-dir=public/system --exclude-dir=doc --exclude-dir=.yardoc --exclude-dir=log"
+
+
+alias tree='tree -CA'
+
+alias lorig='find .  -name "*.orig"'
+alias rorig='find .  -name "*.orig" -exec rm -f {} \;'
+
+# node webkit
+alias nw="~/node_modules/nodewebkit/bin/nodewebkit"
+
+

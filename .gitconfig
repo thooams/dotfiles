@@ -1,0 +1,53 @@
+[merge]
+  tool 	= mergetool
+[alias]
+  a     = add --all
+  amend = commit --amend
+  br    = branch
+  co    = checkout
+  ci    = commit
+  ciam  = commit -am
+  wip   = commit -am '[...work in progress...]'
+  ups   = commit -am '[...update submodules...]'
+  upd   = commit -am '[...update doc...]'
+  fc    = commit -am '[...fix cucumber test...]'
+  d     = diff
+  df    = diff --stat --minimal
+  gr    = grep --color --ignore-case -n
+  l     = log
+  pu    = pull
+  pom   = push origin master
+  po    = push origin
+  r     = rebase
+  rst   = reset
+  st    = status
+  sta   = status --short --branch --untracked-files=normal
+  ta    = tag -a
+  rms   = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
+  bl    = "!f(){ git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'; }; f"
+[user]
+  name  = Thooams
+  email = thooams@gmail.com
+[github]
+  user  = thooams
+[format]
+  pretty = %C(magenta reverse)%h%Creset %Cgreen[%cr]%Creset (%an) %s
+[url "git://github.com/"]
+  # Read-only
+  insteadOf = gh:
+[url "git@github.com:"]
+  # With write access
+  insteadOf = wgh:
+[credential]
+	helper = cache --timeout=2628000
+[push]
+  # Push current branch even if you've never pushed it before
+  default = current
+[pull]
+  # Push current branch even if you've never pushed it before
+  default = current
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[init]
+	templatedir = ~/.git-templates

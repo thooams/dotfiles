@@ -1,0 +1,20 @@
+*.local
+
+TAGS
+tags
+
+# vim
+undodir/*
+
+# RUBYMINE IDE
+*.idea
+
+# OSX
+*.DS_Store
+__MACOSX/*
+
+# GIT
+*.orig
+
+# LIVERELOAD
+.livereload
