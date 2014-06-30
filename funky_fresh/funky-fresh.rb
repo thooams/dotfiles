@@ -7,6 +7,7 @@
 APPDIR = "#{ Dir.home }/Apps"
 FFDIR  = "#{ APPDIR }/dotfiles/funky_fresh"
 
+# gem install mercenary
 require 'mercenary'
 require "#{ FFDIR }/plugin.rb"
 
