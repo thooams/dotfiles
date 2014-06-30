@@ -10,7 +10,7 @@ class Editor < Plugin
   end
 
   def execute(options)
-    system "#{ EDITOR } ."
+    system "#{ EDITOR }"
   end
 
 end
