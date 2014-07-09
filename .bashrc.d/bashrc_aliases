@@ -24,4 +24,11 @@ alias rorig='find .  -name "*.orig" -exec rm -f {} \;'
 # node webkit
 alias nw="~/node_modules/nodewebkit/bin/nodewebkit"
 
+# git
+alias gti="git"
+alias tgi="git"
+alias tig="git"
+alias itg="git"
+alias igt="git"
+
 
