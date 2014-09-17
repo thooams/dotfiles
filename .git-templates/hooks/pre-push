@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Create tags file before push
- ctags -R --exclude=doc --exclude=public --exclude=vendor --exclude=app/assets/javascripts/libs
+ctags -R --exclude=doc --exclude=public --exclude=vendor --exclude=app/assets/javascripts/libs
