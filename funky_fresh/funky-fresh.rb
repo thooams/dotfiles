@@ -16,7 +16,7 @@ Dir["#{ FFDIR }/plugins/*.rb"].each {|file| load file }
 
 class FunkyFresh
 
-  VERSION = "v3.0"
+  VERSION = "v3.1"
 
   def initialize
     Mercenary.program(:ff) do |p|
@@ -64,7 +64,6 @@ class FunkyFresh
 
     eos
   end
-
 
 end
 
