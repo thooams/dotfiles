@@ -30,6 +30,7 @@
   email = thooams@gmail.com
 [github]
   user  = thooams
+  email = thooams@gmail.com
 [format]
   pretty = %C(magenta reverse)%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [url "git://github.com/"]
@@ -51,3 +52,5 @@
 	smudge = git-media-smudge %f
 [init]
 	templatedir = ~/.git-templates
+[help]
+	autocorrect = 1

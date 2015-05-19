@@ -18,3 +18,9 @@ __MACOSX/*
 
 # LIVERELOAD
 .livereload
+
+log
+.*.log
+tmp
+
+public/system/

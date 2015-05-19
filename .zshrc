@@ -93,7 +93,7 @@ else
 
   #zsh config
   plugins=(git rails ruby debian gem github knife rails rake rbenv rvm shh-agent)
-  export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/thomas/.rvm/bin:$PATH
+  export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/thomas/.rvm/bin:/home/thomas/.linuxbrew/bin:$PATH
 
   # nodejs
   export PATH=$PATH:/opt/node/bin
