@@ -31,4 +31,7 @@ alias tig="git"
 alias itg="git"
 alias igt="git"
 
+# rake
+alias rake="bundle exec rake"
+
 
