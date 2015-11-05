@@ -1,12 +1,17 @@
-
-
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="mh"
-
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  ZSH_THEME="powerlevel9k/powerlevel9k"
+else
+  ZSH_THEME="powerlevel9k/powerlevel9k"
+  POWERLEVEL9K_MODE='awesome-fontconfig'
+fi
+if [[ "$TERM" == "xterm" ]]; then
+ export TERM=xterm-256color
+fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -67,15 +72,6 @@ fi
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-if [ -r ~/Apps/powerline/powerline/bindings/zsh ]; then
-
-  if [[ "$OSTYPE" =~ ^darwin ]]; then
-    . ~/Apps/powerline/powerline/bindings/zsh/powerline.zsh
-  else
-    source ~/Apps/powerline/powerline/bindings/zsh/powerline.zsh
-  fi
-fi
-
 # Customize to your needs...
 # if mac os
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -87,12 +83,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
       . /opt/local/etc/bash_completion
   fi
 else
-
-  # Rubymine
-  # export RUBYMINE_JDK=/usr/lib/jvm/java-6-openjdk
-
   #zsh config
-  plugins=(git rails ruby debian gem github knife rails rake rbenv rvm shh-agent)
+  plugins=(git docker rails ruby debian gem github knife rails rake rbenv rvm shh-agent)
   export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/thomas/.rvm/bin:/home/thomas/.linuxbrew/bin:$PATH
 
   # nodejs
