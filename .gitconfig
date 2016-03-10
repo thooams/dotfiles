@@ -26,11 +26,11 @@
   rms   = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
   bl    = "!f(){ git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'; }; f"
 [user]
-  name  = Thooams
-  email = thooams@gmail.com
+  name  = Thomas HUMMEL
+  email = thomas@hummel.link
 [github]
-  user  = thooams
-  email = thooams@gmail.com
+  user  = Thomas HUMMEL
+  email = thomas@hummel.link
 [format]
   pretty = %C(magenta reverse)%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [url "git://github.com/"]
