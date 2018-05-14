@@ -28,6 +28,7 @@
 [user]
   name  = Thomas HUMMEL
   email = thomas@hummel.link
+	signingkey = A50E4B0A
 [github]
   user  = Thomas HUMMEL
   email = thomas@hummel.link
@@ -40,7 +41,7 @@
   # With write access
   insteadOf = wgh:
 [credential]
-	helper = cache --timeout=2628000
+	helper = cache
 [push]
   # Push current branch even if you've never pushed it before
   default = current
@@ -54,3 +55,5 @@
 	templatedir = ~/.git-templates
 [help]
 	autocorrect = 1
+[commit]
+  gpgsign = true
