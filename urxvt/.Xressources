@@ -4,7 +4,7 @@
 
 URxvt*scrollBar:	    false
 URxvt*letterSpace:  	-1
-URxvt.internalBorder: 10
+URxvt.internalBorder: -1
 URxvt*boldFont:		    xft:RobotoMono Nerd Font Mono:bold:size=13
 URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:bold:size=13
 URxvt*cursorBlink:    true
@@ -16,7 +16,7 @@ URxvt*utf8:			      true
 !URxvt.perl-ext-common : default, tabbed, matcher, resize-font, -tabbed
 
 
-!URxvt.perl-ext-common: default,resize-font,url-select,keyboard-select,config-reload
+URxvt.perl-ext-common: default,resize-font,url-select,keyboard-select,config-reload
 
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
@@ -34,6 +34,13 @@ Xft.rgba:			      subpixel
 Xft.hinting:       	true
 Xft.hintstyle:		  hintslight
 
+! URrxvt*depth: 32
+! URxvt*background: rgba:0000/0000/0200/c800
+
+URxvt*transparent: true
+URxvt*shading: 10
+
+
 
 ! Xft.lcdfilter:	  lcddefault
 
@@ -47,7 +54,7 @@ Xft.hintstyle:		  hintslight
 *.background:   #222D32
 *.cursorColor:  #D8DEE9
 *fading: 20
-*fadeColor: nord3
+*fadeColor: #4C566A
 
 *.color0: #3B4252
 *.color1: #BF616A
@@ -65,3 +72,6 @@ Xft.hintstyle:		  hintslight
 *.color13: #B48EAD
 *.color14: #8FBCBB
 *.color15: #ECEFF4
+
+
+
