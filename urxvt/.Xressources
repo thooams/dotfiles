@@ -4,12 +4,14 @@
 
 URxvt*scrollBar:	    false
 URxvt*letterSpace:  	-1
-URxvt.internalBorder: -1
-URxvt*boldFont:		    xft:RobotoMono Nerd Font Mono:bold:size=13
-URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:bold:size=13
+URxvt.internalBorder: 0
+URxvt*boldFont:		    xft:RobotoMono Nerd Font Mono:bold:size=12
+URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:bold:size=12
 URxvt*cursorBlink:    true
-URxvt.iso14755:		    false
 URxvt*utf8:			      true
+! Disable this to use ctrl-shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! on active les modules nécesssaires
 !URxvt.perl-ext: selection.mark-and-vank, resize-font
@@ -46,9 +48,6 @@ URxvt.keysym.C-S-Down: \033[1;6B
 URxvt.keysym.C-S-Right: \033[1;6C
 URXvt.keysym.C-S-Left: \033[1;6D
 
-! Disable this to use ctrl-shift
-URxvt.iso14755: false
-URxvt.iso14755_52: false
 
 ! =================
 !       Xft

@@ -146,10 +146,10 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1:  Editor"
 set $ws2 "2:  Mail"
-set $ws3 "3:  Code"
+set $ws3 "3:  Console"
 set $ws4 "4:  Music"
-set $ws5 "5:  Browser"
-set $ws6 "6:  IM"
+set $ws5 "5:  IM"
+set $ws6 "6:  Browser"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -206,16 +206,18 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+x exec urxvtc -name cmus -e cmus
 
 # Force certaines apps à des wokspaces dédiés
-assign [instance="editor"]                              $ws1
-for_window [class="editor"]           move to workspace $ws1
+assign [instance="editori"]                              $ws1
+for_window [class="editori"]           move to workspace $ws1
+assign [instance="console"]                             $ws3
+for_window [class="console"]          move to workspace $ws3
 assign [instance="cmus"]                                $ws4
 for_window [class="cmus"]             move to workspace $ws4
 assign [class="Thunderbird"]                            $ws2
 for_window [class="Thunderbird"]      move to workspace $ws2
-assign [class="Google-chrome"]                          $ws5
-for_window [class="Google-chrome"]    move to workspace $ws5
-assign [class="Rambox"]                                 $ws6
-for_window [class="Rambox"]           move to workspace $ws6
+assign [class="Google-chrome"]                          $ws6
+for_window [class="Google-chrome"]    move to workspace $ws6
+assign [class="Rambox"]                                 $ws5
+for_window [class="Rambox"]           move to workspace $ws5
 assign [class="Spotify"]                                $ws4
 for_window [class="Spotify"]          move to workspace $ws4
 assign [class="csgo_linux64"]                           $ws1
@@ -272,7 +274,7 @@ bindsym $mod+apostrophe exec --no-startup-id ~/.config/i3/empty_workspace.sh
 bar {
   height 25
   status_command i3blocks
-  i3bar_command i3bar -t
+  #i3bar_command i3bar -t
   position top
   font pango:RobotoMono Nerd Font 11
   separator_symbol "|"
@@ -283,7 +285,7 @@ bar {
   tray_padding 0
   height 25
   colors{
-    #background #222D32225
+    background #222D32
     #statusline #DCDCDC
     #separator          $transparent
     #                  border  backgr. text
@@ -375,4 +377,4 @@ exec --no-startup-id compton -G
 exec --no-startup-id /opt/Rambox/rambox
 exec --no-startup-id thunderbird
 exec --no-startup-id urxvtc -name console
-exec --no-startup-id urxvtc -name editor
+exec --no-startup-id urxvtc -name editori
