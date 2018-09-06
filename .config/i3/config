@@ -184,16 +184,17 @@ bindsym $mod+slash workspace $ws9
 bindsym $mod+asterisk workspace $ws10
 
 # Switch to workspace with pavé numéric
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindcode Mod1+87 workspace $ws1
+bindcode $mod+87 workspace $ws1
+bindsym $mod+88 workspace $ws2
+bindsym $mod+89 workspace $ws3
+bindsym $mod+83 workspace $ws4
+bindsym $mod+84 workspace $ws5
+bindsym $mod+85 workspace $ws6
+bindsym $mod+79 workspace $ws7
+bindsym $mod+80 workspace $ws8
+bindsym $mod+81 workspace $ws9
+bindsym $mod+90 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -210,8 +211,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+x exec urxvtc -name cmus -e cmus
 
 # Force certaines apps à des wokspaces dédiés
-assign [instance="editori"]                              $ws1
-for_window [class="editori"]           move to workspace $ws1
+assign [instance="editor"]                              $ws1
+for_window [class="editor"]           move to workspace $ws1
 assign [instance="console"]                             $ws3
 for_window [class="console"]          move to workspace $ws3
 assign [instance="cmus"]                                $ws4
@@ -385,4 +386,4 @@ exec --no-startup-id compton -G
 exec --no-startup-id /opt/Rambox/rambox
 exec --no-startup-id thunderbird
 exec --no-startup-id urxvtc -name console
-exec --no-startup-id urxvtc -name editori
+exec --no-startup-id urxvtc -name editor
