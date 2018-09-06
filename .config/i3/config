@@ -371,14 +371,14 @@ exec --no-startup-id xrandr && xrandr --output DVI-1 --mode 1920x1080 --rate 60.
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/642258.jpg
 
-exec --no-startup-id wal -R
+exec_always --no-startup-id wal -R -b "#282A33" -a 90
 
 # Redémarre polybar quand on redémarre i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id numlockx on
 
 
 # Applications au démarrage
-exec --no-startup-id numlockx on
 exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id dunst
 exec --no-startup-id compton -G

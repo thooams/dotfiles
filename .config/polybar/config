@@ -1,7 +1,6 @@
 [colors]
 accent =  ${xrdb:color1:#222}
-;background = ${xrdb:background:#333}
-background = #282A33
+background = ${xrdb:background:#333}
 foreground = ${xrdb:foreground:#222}
 foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
@@ -293,7 +292,7 @@ label-unfocused-font = 4
 label-unfocused-padding = 4
 
 label-urgent = %icon%  %name%
-label-urgent-foreground = ${colors.foreground}
+label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.alert}
 label-urgent-underline = ${colors.alert}
 label-urgent-font = 4
