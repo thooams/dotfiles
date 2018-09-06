@@ -8,10 +8,6 @@ secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 background-alt = #333333
 
-[bar/bar]
-background = ${colors.background}
-foreground = ${colors.foreground}
-
 [bar/top]
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -177,7 +173,8 @@ font-6 = ${bar/bottom.font-6}
 font-7 = ${bar/bottom.font-7}
 
 modules-left = i3
-modules-right = fs-root clock
+modules-center = xwindow
+modules-right = fs-home clock
 
 #wm-restack = ${bar/bottom.wm-restack}
 
@@ -189,6 +186,10 @@ type = internal/fs
 mount-0 = /
 label-mounted = %{F#e60053}%percentage_used%%%{F-} used of %mountpoint%
 
+[module/fs-home]
+type = internal/fs
+mount-0 = /home
+label-mounted = %{F#e60053}%percentage_used%%%{F-} used of %mountpoint%
 
 ; [module/xbacklight]
 ; type = internal/xbacklight
