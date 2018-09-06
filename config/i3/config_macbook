@@ -172,8 +172,11 @@ bindsym $mod+o mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  position top
+  status_command i3blocks
 }
 
 # Redémarre polybar quand on redémarre i3
 exec_always --no-startup-id "killall polybar;polybar -r center & polybar -r left & polybar -r right"
+
+exec --no-startup-id compton --blur-background
