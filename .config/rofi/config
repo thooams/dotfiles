@@ -1,0 +1,14 @@
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.fullscreen: true
+
+rofi.eh: 1
+rofi.line-margin: 20
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.lines: 3
+rofi.width: 100
+rofi.padding: 200
+rofi.bw: 0
+rofi.show-icons: true
+rofi.matching: fuzzy
+rofi.show: run

@@ -4,26 +4,52 @@
 
 URxvt*scrollBar:	    false
 URxvt*letterSpace:  	-1
-URxvt.internalBorder: -1
-URxvt*boldFont:		    xft:RobotoMono Nerd Font Mono:bold:size=13
-URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:bold:size=13
+URxvt.internalBorder: 0
+URxvt*externalBorder: 0
+URxvt*boldFont:		    xft:RobotoMono Nerd Font Mono:bold:size=12
+URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:medium:size=12
 URxvt*cursorBlink:    true
-URxvt.iso14755:		    false
 URxvt*utf8:			      true
+URxvt*borderLess:     false
+! Disable this to use ctrl-shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! on active les modules nécesssaires
 !URxvt.perl-ext: selection.mark-and-vank, resize-font
 !URxvt.perl-ext-common : default, tabbed, matcher, resize-font, -tabbed
 
 
-URxvt.perl-ext-common: default,resize-font,url-select,keyboard-select,config-reload
+URxvt.perl-ext-common: default,resize-font,url-select,clipboard,url-picker,keyboard-select,config-reload
 
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
 URxvt.keysym.C-equal:     resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
+
 !! On définite comment passe ne mode copie: alt-y
-!URxvt.keysym.M-y: perl:mark-and-yank:activate_mark_mode
+URxvt.keysym.C-S-c: perl:clipboard:copy
+URxvt.keysym.C-S-v: perl:clipboard:paste
+!
+!
+! =================
+!       URXVT Shortcut
+! =================
+URxvt.keysym.S-Up: \033[1;2A
+URxvt.keysym.S-Down: \033[1;2B
+URxvt.keysym.S-Right: \033[1;2C
+URxvt.keysym.S-Left: \033[1;2D
+URxvt.keysym.S-Home: \033[1;2H
+URxvt.keysym.S-End: \033[1;2F
+URxvt.keysym.C-Up: \033[1;5A
+URxvt.keysym.C-Down: \033[1;5B
+URxvt.keysym.C-Right: \033[1;5C
+URxvt.keysym.C-Left: \033[1;5D
+URxvt.keysym.C-S-Up: \033[1;6A
+URxvt.keysym.C-S-Down: \033[1;6B
+URxvt.keysym.C-S-Right: \033[1;6C
+URXvt.keysym.C-S-Left: \033[1;6D
+
 
 ! =================
 !       Xft
@@ -34,44 +60,6 @@ Xft.rgba:			      subpixel
 Xft.hinting:       	true
 Xft.hintstyle:		  hintslight
 
-! URrxvt*depth: 32
-! URxvt*background: rgba:0000/0000/0200/c800
-
 URxvt*transparent: true
 URxvt*shading: 10
-
-
-
-! Xft.lcdfilter:	  lcddefault
-
-! ============
-!   Couleurs
-! ============
-*secondary:  #4C566A
-*active:     #D8DEE9
-
-*.foreground:   #D8DEE9
-*.background:   #222D32
-*.cursorColor:  #D8DEE9
-*fading: 20
-*fadeColor: #4C566A
-
-*.color0: #3B4252
-*.color1: #BF616A
-*.color2: #A3BE8C
-*.color3: #EBCB8B
-*.color4: #81A1C1
-*.color5: #B48EAD
-*.color6: #ECEFF4
-*.color7: #E5E9F0
-*.color8: #4C566A
-*.color9: #BF616A
-*.color10: #EBCB8B
-*.color11: #EBCB8B
-*.color12: #81A1C1
-*.color13: #B48EAD
-*.color14: #8FBCBB
-*.color15: #ECEFF4
-
-
-
+URxvt.borderColor: #00ffff

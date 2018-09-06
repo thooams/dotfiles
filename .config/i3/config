@@ -10,6 +10,29 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $default_gaps_inner 4
+set $default_gaps_outer 4
+set $editor urxvtc
+set $browser google-chrome
+
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -30,31 +53,19 @@ set $mod Mod4
 #          APPARENCE          #
 ###############################
 # Police à utiliser
-font pango:monospace 8
+font pango:RobotoMono Nerd Font 8
 
-# Couleurs
-set_from_resource       $active       active
-set_from_resource       $inactive     secondary
-set_from_resource       $background   background
-set_from_resource       $foreground   foreground
-
-# class			border	    backgr.   	text	       indicat   child_border
-client.focused          $background #222D32     $foreground    #FFCC66   $active
-client.focused_inactive $background #222D32 	$foreground    #484e50   $inactive
-client.unfocused        $background #182125     $inactive      #292d2e   $inactive
-client.urgent           $active     $active    	$background    #900000   $active
-client.placeholder      $background $background $foreground    #000000   $inactive
-client.background       $background
+hide_edge_borders smart
+new_window pixel 2
+new_float pixel 2
 
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/bridge_by_fknvermillion-d39d3d2.jpg
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec $editor
 
 # kill focused window
 bindsym $mod+Shift+A kill
@@ -63,7 +74,7 @@ bindsym $mod+Shift+A kill
 #bindsym $mod+i exec dmenu_run
 
 # Rofi comme lanceur d'application
-bindsym $mod+i exec rofi -show run -display-run ":"
+bindsym $mod+i exec rofi -show drun
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -126,15 +137,28 @@ bindsym $mod+a focus parent
 ###############################
 
 # Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "Thunderbird"
-set $ws5 "5"
-set $ws6 "Spotify"
-set $ws7 "Chrome"
-set $ws8 "Rambox"
+# set $ws1 "1:  Editor"
+# set $ws2 "2:  Mail"
+# set $ws3 "3:  Console"
+# set $ws4 "4:  Music"
+# set $ws5 "5:  IM"
+# set $ws6 "6:  Browser"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
+
+set $ws1 "1: Editor"
+set $ws2 "2: Mail"
+set $ws3 "3: Console"
+set $ws4 "4: Music"
+set $ws5 "5: IM"
+set $ws6 "6: Browser"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 set $monitorCenter DVI-1
 set $monitorLeft   DVI-0
 set $monitorRight  HDMI-0
@@ -142,12 +166,10 @@ set $monitorRight  HDMI-0
 # Ecran associé à chaque Workspace
 workspace $ws1 output $monitorCenter
 workspace $ws2 output $monitorCenter
-workspace $ws3 output $monitorCenter
-workspace $ws4 output $monitorCenter
-workspace $ws5 output $monitorLeft
-workspace $ws6 output $monitorLeft
-workspace $ws7 output $monitorRight
-workspace $ws8 output $monitorRight
+workspace $ws3 output $monitorLeft
+workspace $ws4 output $monitorLeft
+workspace $ws5 output $monitorRight
+workspace $ws6 output $monitorRight
 
 # switch to workspace
 bindsym $mod+quotedbl workspace $ws1
@@ -161,10 +183,23 @@ bindsym $mod+minus workspace $ws8
 bindsym $mod+slash workspace $ws9
 bindsym $mod+asterisk workspace $ws10
 
+# Switch to workspace with pavé numéric
+bindcode Mod1+87 workspace $ws1
+bindcode $mod+87 workspace $ws1
+bindsym $mod+88 workspace $ws2
+bindsym $mod+89 workspace $ws3
+bindsym $mod+83 workspace $ws4
+bindsym $mod+84 workspace $ws5
+bindsym $mod+85 workspace $ws6
+bindsym $mod+79 workspace $ws7
+bindsym $mod+80 workspace $ws8
+bindsym $mod+81 workspace $ws9
+bindsym $mod+90 workspace $ws10
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+guillemotleft move container to workspace $ws2
-bindsym $mod+Shift+guillemotright move container to workspace $ws3
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
@@ -173,13 +208,27 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+x exec urxvtc -name cmus -e cmus
+
 # Force certaines apps à des wokspaces dédiés
-assign [class="Thunderbird"]                            $ws4
-for_window [class="Thunderbird"]          move to workspace $ws4
-# Workspace 8 (Ecran droite, Music)
-assign [class="Spotify"]                                $ws6
-for_window [class="Spotify"]          move to workspace $ws6
-for_window [class="Pcmanfm|Nautilus|Thunar|Toplevel"] floating enable
+assign [instance="editor"]                              $ws1
+for_window [class="editor"]           move to workspace $ws1
+assign [instance="console"]                             $ws3
+for_window [class="console"]          move to workspace $ws3
+assign [instance="cmus"]                                $ws4
+for_window [class="cmus"]             move to workspace $ws4
+assign [class="Thunderbird"]                            $ws2
+for_window [class="Thunderbird"]      move to workspace $ws2
+assign [class="Google-chrome"]                          $ws6
+for_window [class="Google-chrome"]    move to workspace $ws6
+assign [class="Rambox"]                                 $ws5
+for_window [class="Rambox"]           move to workspace $ws5
+assign [class="Spotify"]                                $ws4
+for_window [class="Spotify"]          move to workspace $ws4
+assign [class="csgo_linux64"]                           $ws1
+for_window [class="csgo_linux64"]     move to workspace $ws1
+
+for_window [class="Nautilus|Thunar|Toplevel|Yad"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
@@ -187,6 +236,10 @@ bindsym $mod+Shift+X reload
 bindsym $mod+Shift+O restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# To use tab and switch beetween workspaces
+bindcode Mod1+23 workspace next
+bindcode Mod1+Shift+23 workspace prev
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -218,11 +271,40 @@ bindsym $mod+o mode "resize"
 # Configure 3 monitors
 bindsym $mod+F3 exec xrandr --output DVI-1 --mode 1920x1080 --rate 60.00 --output DVI-0 --mode 1280x1024 --rate 60.02 --left-of DVI-1 --output HDMI-0 --mode 1280x1024 --rate 60.02 --right-of DVI-1
 
+# Create new workspace
+bindsym $mod+apostrophe exec --no-startup-id ~/.config/i3/empty_workspace.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+#   height 25
+#   status_command i3blocks
+#   #i3bar_command i3bar -t
+#   position top
+#   font pango:RobotoMono Nerd Font 11
+#   separator_symbol "|"
+#   bindsym button4 nop
+#   bindsym button5 nop
+#   #tray_output eDP1
+#   #tray_output LVDS-0
+#   tray_padding 0
+#   height 25
+#   colors{
+#     background #222D32
+#     #statusline #DCDCDC
+#     #separator          $transparent
+#     #                  border  backgr. text
+#     # focused_workspace  #4c7899 #285577 #ffffff
+#     # active_workspace   #333333 #5f676a #ffffff
+#     # inactive_workspace #333333 #222222 #888888
+#     # urgent_workspace   #2f343a #900000 #ffffff
+#   }
+# }
+
+
+###############################
+#         Audio               #
+###############################
 
 # Audio
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -235,14 +317,73 @@ bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 
-# I3 Gaps
+###############################
+#         I3 Gaps             #
+###############################
+
 for_window [class="^.*"] border pixel 2
 for_window [class=".*"] title_format "  %title"
-gaps inner 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
 smart_borders on
 smart_gaps on
 
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), mod1 + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), mod1 + +|-|0 (global)
+bindsym $mod+mod1+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym mod1+plus  gaps inner all plus 5
+        bindsym mod1+minus gaps inner all minus 5
+        bindsym mod1+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym mod1+plus  gaps outer all plus 5
+        bindsym mod1+minus gaps outer all minus 5
+        bindsym mod1+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Add 3 monitor configuration
+exec --no-startup-id xrandr && xrandr --output DVI-1 --mode 1920x1080 --rate 60.00 --output DVI-0 --mode 1280x1024 --rate 60.02 --left-of DVI-1 --output HDMI-0 --mode 1280x1024 --rate 60.02 --right-of DVI-1
+
+
+# Wallpaper
+exec_always --no-startup-id feh --bg-fill ~/Pictures/642258.jpg
+
+exec_always --no-startup-id wal -R -b "#282A33" -a 90
+
 # Redémarre polybar quand on redémarre i3
-exec_always --no-startup-id "killall polybar;polybar -r center & polybar -r left & polybar -r right"
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id numlockx on
 
 
+# Applications au démarrage
+exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id dunst
+exec --no-startup-id compton -G
+exec --no-startup-id /opt/Rambox/rambox
+exec --no-startup-id thunderbird
+exec --no-startup-id urxvtc -name console
+exec --no-startup-id urxvtc -name editor
