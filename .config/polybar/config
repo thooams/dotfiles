@@ -41,7 +41,7 @@ font-6 = "Font Awesome 5 Free Solid:pixelsize=10;3"
 font-7 = "Font Awesome 5 Brands:pixelsize=10;3"
 
 modules-left = powermenu pulseaudio spotify player-cmus
-modules-center = clock
+modules-center = popup-calendar
 modules-right = volume wired-network battery keyboard
 
 ; List of indicators to ignore
@@ -82,8 +82,10 @@ font-1 = Unifont:size=5;0
 ;font-2 = FontAwesome:size=8;0
 font-2 = RobotoMonoNerdFont:size=8;0
 font-3 = NotoSans-Regular:size=8;-1
-font-4 = Unifont:size=5;0
-font-5 = Termsynu:size=7;0
+font-4 = RobotoMonoNerdFont:size=10;0
+font-5 = "Font Awesome 5 Free:pixelsize=10;3"
+font-6 = "Font Awesome 5 Free Solid:pixelsize=10;3"
+font-7 = "Font Awesome 5 Brands:pixelsize=10;3"
 
 modules-left = i3
 modules-center = xwindow
@@ -123,6 +125,8 @@ font-2 = ${bar/bottom.font-2}
 font-3 = ${bar/bottom.font-3}
 font-4 = ${bar/bottom.font-4}
 font-5 = ${bar/bottom.font-5}
+font-6 = ${bar/bottom.font-6}
+font-7 = ${bar/bottom.font-7}
 
 
 modules-left = i3
@@ -161,6 +165,8 @@ font-2 = ${bar/bottom.font-2}
 font-3 = ${bar/bottom.font-3}
 font-4 = ${bar/bottom.font-4}
 font-5 = ${bar/bottom.font-5}
+font-6 = ${bar/bottom.font-6}
+font-7 = ${bar/bottom.font-7}
 
 modules-left = i3
 modules-right = fs-root clock
@@ -433,6 +439,7 @@ format-padding = 5
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 date = %d/%m/%Y - %H:%M 
+label-connected = "%{A1:connman-gtk:} %essid%%{A}
 
 [module/volume]
 type = internal/volume
@@ -592,10 +599,17 @@ blacklist-1 = scroll lock
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = "|  "
+format-prefix = "|"
 label-layout-foreground =  ${colors.foreground}
 exec = python ~/.config/polybar/scripts/spotify_status.py -f "{artist} - {song}"
 format = <label>
 format-foreground =  ${colors.foreground}
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup
+
 
 ; vim:ft=dosini

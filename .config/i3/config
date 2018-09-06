@@ -232,7 +232,7 @@ for_window [class="Spotify"]          move to workspace $ws4
 assign [class="csgo_linux64"]                           $ws1
 for_window [class="csgo_linux64"]     move to workspace $ws1
 
-for_window [class="Nautilus|Thunar|Toplevel"] floating enable
+for_window [class="Nautilus|Thunar|Toplevel|Yad"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
