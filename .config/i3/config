@@ -22,6 +22,18 @@ set $black       #282828
 set $darkblack   #1d2021
 set $transparent #00000000
 
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 
@@ -42,23 +54,6 @@ set $transparent #00000000
 ###############################
 # Police à utiliser
 font pango:RobotoMono Nerd Font 8
-
-# Couleurs
-#Window and Color
-# client.focused          #364670 #364670 #93CFBD #364670 #364670
-# client.focused_inactive #2F2F38 #2F2F38 #CCCCCC #2F2F38 #2F2F38
-# client.unfocused        #2F2F38 #2F2F38 #93CFBD #2F2F38 #2F2F38
-# client.urgent           #6B3659 #6B3659 #93CFBD #6B3659 #6B3659
-# client.placeholder      #666666 #666666 #CCCCCC #666666 #666666
-# client.background       #364670
-
-
-#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
-client.unfocused        $black      $black      $white      $darkblack  $darkblack
-client.focused_inactive $black      $black      $white      $darkblack  $darkblack
-client.urgent           $darkred    $darkred    $black      $darkred    $darkred
-client.background       $black
 
 hide_edge_borders smart
 new_window pixel 2

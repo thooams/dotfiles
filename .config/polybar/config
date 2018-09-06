@@ -1,7 +1,8 @@
 [colors]
 accent =  ${xrdb:color1:#222}
-background = ${xrdb:color0:#222}
-foreground = ${xrdb:color7:#222}
+;background = ${xrdb:background:#333}
+background = #282A33
+foreground = ${xrdb:foreground:#222}
 foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
@@ -13,6 +14,8 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 [bar/top]
+background = ${colors.background}
+foreground = ${colors.foreground}
 enable-ipc = true
 monitor = DVI-1
 width = 100%
@@ -54,6 +57,8 @@ blacklist-1 = scroll lock clock
 tray-position = right
 
 [bar/bottom]
+background = ${colors.background}
+foreground = ${colors.foreground}
 monitor = DVI-1
 bottom = true
 width = 100%
@@ -96,6 +101,8 @@ modules-right = cpu memory clock
 
 
 [bar/left]
+background = ${colors.background}
+foreground = ${colors.foreground}
 monitor = DVI-0
 enable-ipc = true
 bottom = true
@@ -136,6 +143,8 @@ modules-right = fs-root clock
 #wm-restack = ${bar/bottom.wm-restack}
 
 [bar/right]
+background = ${colors.background}
+foreground = ${colors.foreground}
 monitor = HDMI-0
 enable-ipc = true
 bottom = true
@@ -395,7 +404,7 @@ exec-if = cmus-remote -Q
 interval = 1
 click-left = cmus-remote -n
 click-right = cmus-remote -r
-format-prefix = " "
+format-prefix = "| "
 click-middle = ~/.config/polybar/scripts/player-cmus-toggle.sh
 
 ; [module/mpd]
