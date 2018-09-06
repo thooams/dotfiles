@@ -338,7 +338,7 @@ mode "$mode_gaps_outer" {
 
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Téléchargements/windows_69-wallpaper-1440x900.jpg
+exec_always --no-startup-id feh --bg-fill ~/Téléchargements/2.jpg
 
 exec_always --no-startup-id wal -R -b "#282A33" -a 90
 
@@ -350,4 +350,4 @@ exec_always --no-startup-id numlockx on
 # Applications au démarrage
 exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id dunst
-exec --no-startup-id compton -G
+#exec --no-startup-id compton -G

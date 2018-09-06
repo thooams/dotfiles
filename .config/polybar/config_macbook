@@ -302,7 +302,7 @@ bar-used-empty-foreground = ${colors.foreground}
 
 [module/wired-network]
 type = internal/network
-interface = enp6s0
+interface = enp0s3
 interval = 2.0
 
 format-connected = <label-connected>
@@ -492,7 +492,7 @@ menu-1-0-exec = sudo reboot
 
 menu-2-0 = Power off
 menu-2-0-foreground = ${colors.accent}
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = sudo shutdown -p now
 menu-2-1 = Cancel
 menu-2-1-foreground = ${colors.accent}
 menu-2-1-exec = menu-open-0
