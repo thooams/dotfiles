@@ -36,10 +36,13 @@ font-1 = MaterialIcons:size=10;2
 font-2 = Termsynu:size=8;0
 font-3 = Siji:pixelsize=10;1
 font-4 = RobotoMonoNerdFont:size=10;0
+font-5 = "Font Awesome 5 Free:pixelsize=10;3"
+font-6 = "Font Awesome 5 Free Solid:pixelsize=10;3"
+font-7 = "Font Awesome 5 Brands:pixelsize=10;3"
 
-modules-left = powermenu player-cmus
-modules-center = xwindow
-modules-right = volume wired-network battery keyboard clock
+modules-left = powermenu pulseaudio spotify player-cmus
+modules-center = clock
+modules-right = volume wired-network battery keyboard
 
 ; List of indicators to ignore
 blacklist-0 = num lock
@@ -83,7 +86,7 @@ font-4 = Unifont:size=5;0
 font-5 = Termsynu:size=7;0
 
 modules-left = i3
-;modules-center =
+modules-center = xwindow
 modules-right = cpu memory clock
 ;modules-right = memory
 
@@ -91,8 +94,8 @@ modules-right = cpu memory clock
 
 
 [bar/left]
-enable-ipc = true
 monitor = DVI-0
+enable-ipc = true
 bottom = true
 ;dock = true
 width = ${bar/bottom.width}
@@ -102,6 +105,8 @@ underline-size = ${bar/bottom.underline-size}
 underline-color = ${bar/bottom.underline-color}
 overline-size = ${bar/bottom.overline-size}
 overline-color = ${bar/bottom.overline-color}
+border-top = 3
+border-top-color = ${colors.background-alt}
 
 border-bottom.= ${bar/bottom.border-bottom}
 border-bottom.color = ${bar/bottom.border-bottom-color}
@@ -118,6 +123,7 @@ font-2 = ${bar/bottom.font-2}
 font-3 = ${bar/bottom.font-3}
 font-4 = ${bar/bottom.font-4}
 font-5 = ${bar/bottom.font-5}
+
 
 modules-left = i3
 modules-center = xwindow
@@ -126,8 +132,8 @@ modules-right = fs-root clock
 #wm-restack = ${bar/bottom.wm-restack}
 
 [bar/right]
-enable-ipc = true
 monitor = HDMI-0
+enable-ipc = true
 bottom = true
 ;dock = true
 width = ${bar/bottom.width}
@@ -137,6 +143,8 @@ underline-size = ${bar/bottom.underline-size}
 underline-color = ${bar/bottom.underline-color}
 overline-size = ${bar/bottom.overline-size}
 overline-color = ${bar/bottom.overline-color}
+border-top = 3
+border-top-color = ${colors.background-alt}
 
 border-bottom.= ${bar/bottom.border-bottom}
 border-bottom.color = ${bar/bottom.border-bottom-color}
@@ -155,8 +163,9 @@ font-4 = ${bar/bottom.font-4}
 font-5 = ${bar/bottom.font-5}
 
 modules-left = i3
-modules-center = xwindow
 modules-right = fs-root clock
+
+#wm-restack = ${bar/bottom.wm-restack}
 
 #wm-restack = ${bar/bottom.wm-restack}
 
@@ -246,11 +255,11 @@ type = internal/i3
 format = <label-state> <label-mode>
 pin-workspaces = true
 
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = code;
-ws-icon-3 = music;
-ws-icon-4 = irssi;
+ws-icon-0 = 3: Console;
+ws-icon-1 = 6: Browser;
+ws-icon-2 = 1: Editor;
+ws-icon-3 = 4: Music;
+ws-icon-4 = 5: IM;
 ws-icon-default = 
 
 label-dimmed-underline = ${root.background}
@@ -365,12 +374,13 @@ bar-used-empty-foreground = ${colors.foreground}
 
 [module/wired-network]
 type = internal/network
-interface = net0
+interface = enp6s0
 interval = 2.0
 
 label-connected =   %local_ip%
+label-connected-foreground = ${colors.foreground}
 label-disconnected = Ethernet disconnected
-label-disconnected-foreground = ${colors.foreground}
+label-disconnected-foreground = ${colors.alert}
 
 [module/player-cmus]
 type = custom/script
@@ -379,6 +389,7 @@ exec-if = cmus-remote -Q
 interval = 1
 click-left = cmus-remote -n
 click-right = cmus-remote -r
+format-prefix = " "
 click-middle = ~/.config/polybar/scripts/player-cmus-toggle.sh
 
 ; [module/mpd]
@@ -429,13 +440,13 @@ speaker-mixer = Speaker
 headphone-mixer = Headphone
 headphone-id = 9
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = "<ramp-volume> <label-volume>
 
-label-volume = volume %percentage%%
+label-volume = toto
 label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = #66
+format-muted-foreground = ${colors.foreground}
 label-muted = sound muted
 label-muted-foreground = ${colors.foreground}
 
@@ -445,20 +456,35 @@ ramp-volume-2 = 
 ramp-volume-3 = 
 ramp-volume-foreground = ${colors.foreground}
 
-ramp-headphones-0 = 
-ramp-headphones-1 = 
+ramp-headphones-0 = o
+ramp-headphones-1 = i
 ramp-headphones-foreground = ${colors.foreground}
 
-[module/battery]
-type = internal/battery
-full-at = 98
-format-charging = %{T3}Battery <label-charging> %{T-}
-format-discharging = %{T3}Battery <label-discharging> %{T-}
-;format-full = %{T3}Battery <label-full>
-label-charging-font = 3
-label-discharging-font = 3
-label-full =
-;label-full-font = 3
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.foreground}
+label-muted =  muted
+label-muted-foreground = ${colors.foreground-alt}
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; [module/battery]
+; type = internal/battery
+; full-at = 98
+; format-charging = %{T3}Battery <label-charging> %{T-}
+; format-discharging = %{T3}Battery <label-discharging> %{T-}
+; ;format-full = %{T3}Battery <label-full>
+; label-charging-font = 3
+; label-discharging-font = 3
+; label-full =
+; ;label-full-font = 3
 
 [module/xwindow]
 type = internal/xwindow
@@ -563,6 +589,13 @@ label-indicator-foreground = ${colors.primary}
 #blacklist-0 = num lock
 blacklist-1 = scroll lock
 
-
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "|  "
+label-layout-foreground =  ${colors.foreground}
+exec = python ~/.config/polybar/scripts/spotify_status.py -f "{artist} - {song}"
+format = <label>
+format-foreground =  ${colors.foreground}
 
 ; vim:ft=dosini

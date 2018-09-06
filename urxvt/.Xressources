@@ -5,10 +5,12 @@
 URxvt*scrollBar:	    false
 URxvt*letterSpace:  	-1
 URxvt.internalBorder: 0
+URxvt*externalBorder: 0
 URxvt*boldFont:		    xft:RobotoMono Nerd Font Mono:bold:size=12
-URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:bold:size=12
+URxvt*font:	    	    xft:RobotoMono Nerd Font Mono:medium:size=12
 URxvt*cursorBlink:    true
 URxvt*utf8:			      true
+URxvt*borderLess:     false
 ! Disable this to use ctrl-shift
 URxvt.iso14755: false
 URxvt.iso14755_52: false
@@ -58,44 +60,6 @@ Xft.rgba:			      subpixel
 Xft.hinting:       	true
 Xft.hintstyle:		  hintslight
 
-! URrxvt*depth: 32
-! URxvt*background: rgba:0000/0000/0200/c800
-
 URxvt*transparent: true
 URxvt*shading: 10
-
-
-
-! Xft.lcdfilter:	  lcddefault
-
-! ============
-!   Couleurs
-! ============
-*secondary:  #4C566A
-*active:     #D8DEE9
-
-*.foreground:   #D8DEE9
-*.background:   #222D32
-*.cursorColor:  #D8DEE9
-*fading: 20
-*fadeColor: #4C566A
-
-*.color0: #3B4252
-*.color1: #BF616A
-*.color2: #A3BE8C
-*.color3: #EBCB8B
-*.color4: #81A1C1
-*.color5: #B48EAD
-*.color6: #ECEFF4
-*.color7: #E5E9F0
-*.color8: #4C566A
-*.color9: #BF616A
-*.color10: #EBCB8B
-*.color11: #EBCB8B
-*.color12: #81A1C1
-*.color13: #B48EAD
-*.color14: #8FBCBB
-*.color15: #ECEFF4
-
-
-
+URxvt.borderColor: #00ffff
