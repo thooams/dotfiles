@@ -24,7 +24,11 @@ URxvt*scrollTtyKeypress:    true
 !URxvt.perl-ext-common : default, tabbed, matcher, resize-font, -tabbed
 
 
-URxvt.perl-ext-common: default,tabbed,resize-font,url-select,clipboard,url-picker,keyboard-select,config-reload,matcher
+URxvt.perl-lib: /home/thomas/.urxvt/ext/
+URxvt.perl-ext-common: default,resize-font,url-select,clipboard,url-picker,keyboard-select,matcher,tabbedex
+!URxvt.perl-ext: tabbedex
+! Any scripts placed here will override global ones with the same name
+!URxvt.perl-lib: /home/user/.urxvt/ext/
 
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
@@ -36,6 +40,23 @@ URxvt.keysym.C-S-c: perl:clipboard:copy
 URxvt.keysym.C-S-v: perl:clipboard:paste
 
 URxvt.matcher.button:   3
+
+
+!!!! Tab
+
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    15
+URxvt.tabbed.tab-bg:    8
+URxvt.tabbed.new-button: false
+URxvt.tabbed.autohide: true
+URxvt.tabbed.reopen-on-close: false
+
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-w: perl:tabbedex:kill_tab
+URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
+URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
+
 !
 !
 ! =================

@@ -69,6 +69,7 @@ bindsym $mod+Return exec $editor
 
 # kill focused window
 bindsym $mod+Shift+A kill
+bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+i exec dmenu_run
