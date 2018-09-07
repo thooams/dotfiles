@@ -370,7 +370,7 @@ exec --no-startup-id xrandr && xrandr --output DVI-1 --mode 1920x1080 --rate 60.
 
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/642258.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/1.jpg
 
 exec_always --no-startup-id wal -R -b "#282A33" -a 90
 
