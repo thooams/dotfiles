@@ -40,9 +40,10 @@ client.background       $bg
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
+#font pango:DejaVu Sans Mono 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
@@ -53,7 +54,7 @@ client.background       $bg
 #          APPARENCE          #
 ###############################
 # Police à utiliser
-font pango:RobotoMono Nerd Font 8
+#font pango:RobotoMono Nerd Font 8
 
 hide_edge_borders smart
 new_window pixel 2
@@ -69,7 +70,7 @@ bindsym $mod+Return exec $editor
 
 # kill focused window
 bindsym $mod+Shift+A kill
-bindsym $mod+w kill
+bindsym $mod+Shift+W kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+i exec dmenu_run
@@ -137,18 +138,6 @@ bindsym $mod+a focus parent
 #        WORKSPACES           #
 ###############################
 
-# Define names for default workspaces for which we configure key bindings later on.
-# set $ws1 "1:  Editor"
-# set $ws2 "2:  Mail"
-# set $ws3 "3:  Console"
-# set $ws4 "4:  Music"
-# set $ws5 "5:  IM"
-# set $ws6 "6:  Browser"
-# set $ws7 "7"
-# set $ws8 "8"
-# set $ws9 "9"
-# set $ws10 "10"
-
 set $ws1 "1: Editor"
 set $ws2 "2: Mail"
 set $ws3 "3: Console"
@@ -212,22 +201,19 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+x exec urxvtc -name cmus -e cmus
 
 # Force certaines apps à des wokspaces dédiés
-assign [instance="editor"]                              $ws1
-for_window [class="editor"]           move to workspace $ws1
-assign [instance="console"]                             $ws3
-for_window [class="console"]          move to workspace $ws3
-assign [instance="cmus"]                                $ws4
-for_window [class="cmus"]             move to workspace $ws4
+assign [instance="editor|csgo_linux64"]                 $ws1
 assign [class="Thunderbird"]                            $ws2
-for_window [class="Thunderbird"]      move to workspace $ws2
-assign [class="Google-chrome"]                          $ws6
-for_window [class="Google-chrome"]    move to workspace $ws6
+assign [instance="console"]                             $ws3
+assign [instance="cmus|sayonara|spotify"]               $ws4
 assign [class="Rambox"]                                 $ws5
-for_window [class="Rambox"]           move to workspace $ws5
-assign [class="Spotify"]                                $ws4
-for_window [class="Spotify"]          move to workspace $ws4
-assign [class="csgo_linux64"]                           $ws1
-for_window [class="csgo_linux64"]     move to workspace $ws1
+assign [class="Google-chrome"]                          $ws6
+
+for_window [class="csgo_linux64|editor"]    move to workspace $ws1
+for_window [class="Thunderbird"]            move to workspace $ws2
+for_window [class="console"]                move to workspace $ws3
+for_window [class="sayonara|cmus|spotify"]  move to workspace $ws4
+for_window [class="Rambox"]                 move to workspace $ws5
+for_window [class="Google-chrome"]          move to workspace $ws6
 
 for_window [class="Nautilus|Thunar|Toplevel|Yad"] floating enable
 
@@ -303,20 +289,20 @@ bindsym $mod+apostrophe exec --no-startup-id ~/.config/i3/empty_workspace.sh
 # }
 
 
-###############################
-#         Audio               #
-###############################
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Audio
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-# Play / Pause Spotify
-bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioPause exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
+# Media players controls
+bindsym XF86AudioPlay  exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
 
 ###############################
 #         I3 Gaps             #
