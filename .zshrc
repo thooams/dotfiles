@@ -137,3 +137,6 @@ fi
 
 export PATH="/usr/local/heroku/bin:$PATH"
 export DROPBOX_USE_LIBAPPINDICATOR=1
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
