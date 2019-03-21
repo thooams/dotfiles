@@ -10,7 +10,6 @@
   wip   = commit -am '[...work in progress...]'
   ups   = commit -am '[...update submodules...]'
   upd   = commit -am '[...update doc...]'
-  fc    = commit -am '[...fix cucumber test...]'
   d     = diff
   df    = diff --stat --minimal
   gr    = grep --color --ignore-case -n
@@ -28,7 +27,7 @@
 [user]
   name  = Thomas HUMMEL
   email = thomas@hummel.link
-	signingkey = A50E4B0A
+	signingkey = 856B820CC7C070E5
 [github]
   user  = Thomas HUMMEL
   email = thomas@hummel.link
@@ -52,8 +51,10 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [init]
-	templatedir = ~/.git-templates
+	templatedir = ~/.config/nvim/.git-templates
 [help]
 	autocorrect = 1
 [commit]
-  gpgsign = true
+	gpgsign = true
+[gpg]
+	program = gpg2
