@@ -1,0 +1,16 @@
+### Theme variables
+#
+#
+set $bg #282C34
+set $fg #ABB2BF
+
+set $focus #373d48
+set $black $bg
+set $red #E06C75
+set $green #98C379
+set $blue #61AFEF
+set $violet #C678DD
+set $cyan #56B6C2
+set $gray $fg
+
+

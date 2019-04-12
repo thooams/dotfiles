@@ -44,10 +44,10 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator ssh background
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -80,7 +80,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
   fi
 else
   #zsh config
-  plugins=(git docker ruby sudo terminator tmux yarn dnf vi-mode gem github rake rvm shh-agent)
+  plugins=(git docker ruby sudo tmux yarn dnf vi-mode gem github rake rvm ssh-agent)
   export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/thomas/.rvm/bin:/home/thomas/.linuxbrew/bin:/opt/Rambox/rambox$PATH
 
   # nodejs
@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -140,3 +140,6 @@ export DROPBOX_USE_LIBAPPINDICATOR=1
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent
+zstyle :omz:plugins:ssh-agent agent-forwarding on

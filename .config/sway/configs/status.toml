@@ -1,15 +1,20 @@
-#theme = "solarized-dark"
 icons = "awesome"
 
-# [[block]]
-# block = "disk_space"
-# path = "/"
-# alias = "/"
-# info_type = "available"
-# unit = "GB"
-# interval = 20
-# warning = 20.0
-# alert = 10.0
+[theme]
+name = "modern"
+
+[theme.overrides]
+idle_bg = "#373d48"
+separator = "\uE0C2"
+
+[[block]]
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
 
 [[block]]
 block = "memory"

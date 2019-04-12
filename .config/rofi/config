@@ -1,4 +1,4 @@
-rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.theme: /home/thomas/.config/rofi/one-dark.rasi
 rofi.fullscreen: false
 
 rofi.eh: 1
@@ -14,4 +14,4 @@ rofi.matching: fuzzy
 rofi.show: run
 rofi.modi: run,window
 rofi.sidebar-mode: true
-rofi.terminal: urxvtc
+rofi.terminal: termite
