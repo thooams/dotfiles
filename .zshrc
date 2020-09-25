@@ -80,7 +80,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
   fi
 else
   #zsh config
-  plugins=(git docker ruby sudo tmux yarn dnf vi-mode gem github rake rvm ssh-agent)
+  plugins=(git docker ruby sudo tmux yarn dnf vi-mode gem github rake rvm ssh-agent zsh-autosuggestions)
   export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/thomas/.rvm/bin:/home/thomas/.linuxbrew/bin:/opt/Rambox/rambox$PATH
 
   # nodejs
