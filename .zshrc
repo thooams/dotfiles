@@ -1,3 +1,6 @@
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -141,5 +144,3 @@ export DROPBOX_USE_LIBAPPINDICATOR=1
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent
-zstyle :omz:plugins:ssh-agent agent-forwarding on
