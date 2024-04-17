@@ -73,22 +73,12 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  plugins=(git ruby brew osx gem vi-mode github rake rbenv rvm shh-agent)
-  export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/X11/bin:/Users/thomas/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.cabal/bin/pandoc:$PATH
+plugins=(git ruby brew osx gem vi-mode github rake rbenv rvm ssh-agent)
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
-  #  auto completion for macosx
-  if [ -f /opt/local/etc/bash_completion ]; then
-      . /opt/local/etc/bash_completion
-  fi
-else
-  #zsh config
-  plugins=(git docker ruby sudo tmux yarn dnf vi-mode gem github rake rvm ssh-agent zsh-autosuggestions)
-  export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/thomas/.rvm/bin:/home/thomas/.linuxbrew/bin:/opt/Rambox/rambox$PATH
-
-  # nodejs
-  export PATH=$PATH:/opt/node/bin
-  export NODE_PATH=/opt/node:/opt/node/lib/node_modules
+#  auto completion for macosx
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -138,9 +128,10 @@ if [ -r ~/.bashrc.d/bashrc_access ]; then
   fi
 fi
 
+alias ctags="`brew --prefix`/bin/ctags"
+
 export PATH="/usr/local/heroku/bin:$PATH"
 export DROPBOX_USE_LIBAPPINDICATOR=1
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-

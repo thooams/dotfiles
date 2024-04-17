@@ -3,7 +3,7 @@
 [alias]
   a     = add --all
   amend = commit --amend
-  br    = branch
+  br    = switch -c
   co    = checkout
   ci    = commit
   ciam  = commit -am
@@ -27,7 +27,7 @@
 [user]
   name  = Thomas HUMMEL
   email = thomas@hummel.link
-	signingkey = 856B820CC7C070E5
+  signingkey = 856B820CC7C070E5
 [github]
   user  = Thomas HUMMEL
   email = thomas@hummel.link
@@ -44,17 +44,42 @@
 [push]
   # Push current branch even if you've never pushed it before
   default = current
+  autoSetupRemote = true
 [pull]
   # Push current branch even if you've never pushed it before
   default = current
+  rebase = true
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[init]
-	templatedir = ~/.config/nvim/.git-templates
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [commit]
-	gpgsign = true
+  gpgsign = false
 [gpg]
-	program = gpg2
+  program = gpg2
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[merge]
+  tool = p4merge
+  ;cmd = open -W -a Meld --args \"$PWD/LOCAL\" \"$PWD/$REMOTE\"
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[rebase]
+  autoStash = true
+[core]
+  excludesfile = /Users/thomas/.gitignore_global
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[mergetool "p4merge"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""

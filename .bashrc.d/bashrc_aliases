@@ -1,8 +1,6 @@
-alias ls='ls --color=auto'
-alias ll='ls -lF --color=auto'
-alias la='ls -alF --color=auto'
-alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
-alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[0] "'
+alias ls='ls'
+alias ll='ls -lF'
+alias la='ls -alF'
 alias grep='grep --color=auto'
 
 alias lorig='find .  -name "*.orig"'
@@ -18,3 +16,4 @@ alias igt="git"
 # rake
 alias rake="bundle exec rake"
 
+alias ctags="`brew --prefix`/bin/ctags"
